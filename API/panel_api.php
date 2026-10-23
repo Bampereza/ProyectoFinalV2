@@ -10,11 +10,16 @@ if (!isset($_SESSION["usuario"])) {
 // Ruta del archivo de la API
 $endpoint = "api_contactos.php";
 
-// URL base para mostrar en el panel
-$protocolo = (
-    !empty($_SERVER["HTTPS"]) &&
-    $_SERVER["HTTPS"] !== "off"
-) ? "https" : "http";
+
+ // URL base para mostrar en el panel
+$httpsDirecto = !empty($_SERVER["HTTPS"])
+    && $_SERVER["HTTPS"] !== "off";
+
+$httpsProxy = strtolower(
+    trim(explode(",", $_SERVER["HTTP_X_FORWARDED_PROTO"] ?? "")[0])
+) === "https";
+
+$protocolo = ($httpsDirecto || $httpsProxy) ? "https" : "http";
 
 $host = $_SERVER["HTTP_HOST"] ?? "localhost";
 
