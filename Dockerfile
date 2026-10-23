@@ -1,12 +1,16 @@
 FROM php:8.3-apache
 
-# Instalar MySQLi
+# Instalar la extensión MySQLi
 RUN docker-php-ext-install mysqli
 
-# Habilitar mod_rewrite
-RUN a2enmod rewrite
+# Dejar habilitado solamente MPM prefork
+RUN a2dismod mpm_event mpm_worker 2>/dev/null || true
+RUN a2enmod mpm_prefork rewrite
 
-# Copiar los archivos del proyecto
+# Verificar la configuración de Apache
+RUN apache2ctl -t
+
+# Copiar los archivos PHP del proyecto
 COPY . /var/www/html/
 
 # Configurar permisos
