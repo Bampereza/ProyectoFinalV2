@@ -287,7 +287,7 @@ $resultadoUbicaciones = mysqli_query(
 
             <!-- Nuevo acceso al panel de APIs -->
             <a
-                href="api/panel_api.php"
+                href="API/panel_api.php"
                 class="btn btn-outline-light btn-sm btn-panel-api"
             >
                 Panel de APIs
