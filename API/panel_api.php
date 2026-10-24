@@ -387,7 +387,7 @@ $urlBase = $protocolo . "://" . $host . $ruta . "/";
 
                         <td>
                             <a
-                                href="api_contactos.php"
+                                href="consultar_contactos.php"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="ruta-api"
