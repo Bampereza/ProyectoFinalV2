@@ -10,8 +10,7 @@ if (!isset($_SESSION["usuario"])) {
 // Ruta del archivo de la API
 $endpoint = "api_contactos.php";
 
-
- // URL base para mostrar en el panel
+// URL base para mostrar en el panel
 $httpsDirecto = !empty($_SERVER["HTTPS"])
     && $_SERVER["HTTPS"] !== "off";
 
@@ -520,6 +519,29 @@ $urlBase = $protocolo . "://" . $host . $ruta . "/";
 
             </table>
 
+        </div>
+
+    </section>
+
+    <!-- Acceso a la API externa de Wikidata -->
+    <section class="card-api p-4 mt-4">
+
+        <h5 class="fw-bold mb-2">
+            API externa - Consulta de empresas
+        </h5>
+
+        <p class="text-muted mb-3">
+            Consulta información de empresas mediante
+            la API pública de Wikidata.
+        </p>
+
+        <div>
+            <a
+                href="consultar_empresaWikidata.php"
+                class="btn btn-primary"
+            >
+                Consultar empresas
+            </a>
         </div>
 
     </section>

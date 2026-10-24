@@ -2,7 +2,7 @@
 
 // Detectar si existen variables de Railway
 $host = getenv("DB_HOST"); //?: "127.0.0.1";
-$usuario = getenv("DB_USERNAME"); //?: //"root";
+$usuario = getenv("DB_USERNAME"); //?: //"root"; 
 $clave = getenv("DB_PASSWORD");
 
 if ($clave === false) {
