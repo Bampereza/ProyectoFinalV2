@@ -422,7 +422,7 @@ $urlBase = $protocolo . "://" . $host . $ruta . "/";
                                rel="noopener noreferrer"
                                class="ruta-api"
                             >
-                              Consultar contacto por ID
+                                 api_contactos.php?id=2
                            </a>
                         </td>
 
