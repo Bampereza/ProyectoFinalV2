@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     } else {
 
-        $sql = "SELECT id FROM usuarios WHERE username = ?";
+        $sql = "SELECT id FROM usuarios WHERE username = ?";// si se cambio la tabla se debe cambiar tambien aqui
 
         $stmt = mysqli_prepare($conexion, $sql);
 
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $claveCifrada = password_hash($clave, PASSWORD_DEFAULT); // Cifra la clave con hash
 
-            $sql = "INSERT INTO usuarios (username, clave) VALUES (?, ?)";
+            $sql = "INSERT INTO usuarios (username, clave) VALUES (?, ?)"; // si se cambio la tabla se debe cambiar tambien aqui
 
             $stmt = mysqli_prepare($conexion, $sql);
 

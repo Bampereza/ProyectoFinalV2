@@ -40,17 +40,14 @@ $urlBase = $protocolo . "://" . $host . $ruta . "/";
 
     <title>Panel de APIs | Directorio de Contactos BA</title>
 
-    <!-- Bootstrap 5 -->
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
-    <!-- Estilos originales de la aplicación -->
     <link rel="stylesheet" href="../estilos.css">
 
     <style>
-        /* Estilos exclusivos del panel de APIs */
 
         .api-body {
             background-color: #f5f7fb;

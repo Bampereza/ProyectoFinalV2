@@ -1,6 +1,6 @@
 <?php
 
-// Detectar si existen variables de Railway
+// Detecta si existen variables de Railway
 $host = getenv("DB_HOST"); //?: "127.0.0.1";
 $usuario = getenv("DB_USERNAME"); //?: //"root"; 
 $clave = getenv("DB_PASSWORD");
@@ -8,7 +8,7 @@ $clave = getenv("DB_PASSWORD");
 if ($clave === false) {
     $clave = "";
 }
-
+//comentario
 $base_datos = getenv("DB_DATABASE") ?: "bd_gestion_contactos";
 $puerto = (int) (getenv("DB_PORT") ?: 3306);
 

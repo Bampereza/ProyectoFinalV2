@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $registroExitoso = false;
 
     } else {
-
+         // Por si se renombra el usuario aqui se cambia para que vuelva a funcionar
         $sql = "SELECT * FROM usuarios WHERE username = ?";
 
         $stmt = mysqli_prepare($conexion, $sql);
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $usuarioDB = mysqli_fetch_assoc($resultado);
 
-            if (password_verify($clave, $usuarioDB["clave"])) {
+            if (password_verify($clave, $usuarioDB["clave"])) { // Por si se renombra Clave aqui se cambia para que funcione
 
                 $_SESSION["usuario"] = $usuario;
 

@@ -11,7 +11,7 @@ require("conexion.php");
 // Obtener el usuario que inició sesión
 $nombreUsuario = $_SESSION["usuario"];
 
-$sqlUsuario = "SELECT id FROM usuarios WHERE username = ? LIMIT 1";
+$sqlUsuario = "SELECT id FROM usuarios WHERE username = ? LIMIT 1"; // si se cambio la tabla se debe cambiar tambien aqui
 
 $stmtUsuario = mysqli_prepare($conexion, $sqlUsuario);
 
@@ -35,7 +35,7 @@ if (!$usuarioDB) {
 
 $usuario_id = (int) $usuarioDB["id"];
 
-// Obtener categorías
+// Obtener categorías si se cambia algo debe actualizarse esto
 $sqlCategorias = "SELECT id, nombre FROM categorias ORDER BY nombre ASC";
 $resultadoCategorias = mysqli_query($conexion, $sqlCategorias);
 
