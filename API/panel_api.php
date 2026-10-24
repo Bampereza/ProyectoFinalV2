@@ -417,13 +417,13 @@ $urlBase = $protocolo . "://" . $host . $ruta . "/";
 
                         <td>
                             <a
-                                href="api_contactos.php?id=2"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="ruta-api"
+                               href="consultar_contacto.php"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="ruta-api"
                             >
-                                api_contactos.php?id=2
-                            </a>
+                              Consultar contacto por ID
+                           </a>
                         </td>
 
                         <td>
