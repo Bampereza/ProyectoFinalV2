@@ -416,31 +416,14 @@ $urlBase = $protocolo . "://" . $host . $ruta . "/";
                         </td>
 
                         <td>
-                            <form
-                                action="api_contactos.php"
-                                method="GET"
+                            <a
+                                href="api_contactos.php?id=2"
                                 target="_blank"
-                                class="d-flex gap-2 align-items-center"
+                                rel="noopener noreferrer"
+                                class="ruta-api"
                             >
-                                <input
-                                    type="number"
-                                    name="id"
-                                    min="1"
-                                    step="1"
-                                    required
-                                    placeholder="ID"
-                                    aria-label="ID del contacto"
-                                    class="form-control form-control-sm"
-                                    style="width: 85px;"
-                                >
-
-                                <button
-                                    type="submit"
-                                    class="btn btn-primary btn-sm"
-                                >
-                                    Consultar
-                                </button>
-                            </form>
+                                api_contactos.php?id=2
+                            </a>
                         </td>
 
                         <td>
@@ -490,41 +473,9 @@ $urlBase = $protocolo . "://" . $host . $ruta . "/";
                         </td>
 
                         <td>
-                            <div class="d-flex flex-column gap-2">
-
-                                <div class="d-flex gap-2 align-items-center">
-
-                                    <input
-                                        type="number"
-                                        id="idPut"
-                                        min="1"
-                                        step="1"
-                                        placeholder="ID"
-                                        aria-label="ID del contacto a actualizar"
-                                        class="form-control form-control-sm"
-                                        style="width: 85px;"
-                                        oninput="actualizarEndpoint('PUT')"
-                                    >
-
-                                    <button
-                                        type="button"
-                                        class="btn btn-outline-primary btn-sm"
-                                        onclick="copiarEndpoint('PUT')"
-                                    >
-                                        Copiar URL
-                                    </button>
-
-                                </div>
-
-                                <code class="ruta-api" id="urlPut">
-                                    api_contactos.php
-                                </code>
-
-                                <small class="text-muted">
-                                    En Postman, usa PUT e incluye el ID en el JSON.
-                                </small>
-
-                            </div>
+                            <code class="ruta-api">
+                                api_contactos.php?id=2
+                            </code>
                         </td>
 
                         <td>
@@ -548,41 +499,9 @@ $urlBase = $protocolo . "://" . $host . $ruta . "/";
                         </td>
 
                         <td>
-                            <div class="d-flex flex-column gap-2">
-
-                                <div class="d-flex gap-2 align-items-center">
-
-                                    <input
-                                        type="number"
-                                        id="idDelete"
-                                        min="1"
-                                        step="1"
-                                        placeholder="ID"
-                                        aria-label="ID del contacto a eliminar"
-                                        class="form-control form-control-sm"
-                                        style="width: 85px;"
-                                        oninput="actualizarEndpoint('DELETE')"
-                                    >
-
-                                    <button
-                                        type="button"
-                                        class="btn btn-outline-danger btn-sm"
-                                        onclick="copiarEndpoint('DELETE')"
-                                    >
-                                        Copiar URL
-                                    </button>
-
-                                </div>
-
-                                <code class="ruta-api" id="urlDelete">
-                                    api_contactos.php
-                                </code>
-
-                                <small class="text-muted">
-                                    En Postman, usa DELETE con API key.
-                                </small>
-
-                            </div>
+                            <code class="ruta-api">
+                                api_contactos.php?id=2
+                            </code>
                         </td>
 
                         <td>
@@ -672,74 +591,6 @@ $urlBase = $protocolo . "://" . $host . $ruta . "/";
     </footer>
 
 </main>
-
-<script>
-    // Solo genera URLs para Postman.
-    // No modifica ni elimina contactos desde el panel.
-
-    const urlApi = <?= json_encode(
-        $urlBase . $endpoint,
-        JSON_HEX_TAG |
-        JSON_HEX_AMP |
-        JSON_HEX_APOS |
-        JSON_HEX_QUOT
-    ) ?>;
-
-    function actualizarEndpoint(metodo) {
-
-        const sufijo = metodo === "PUT" ? "Put" : "Delete";
-
-        const valor = document.getElementById(
-            "id" + sufijo
-        ).value;
-
-        const idValido = /^[1-9]\d*$/.test(valor);
-
-        const ruta = metodo === "DELETE" && idValido
-            ? "api_contactos.php?id=" + valor
-            : "api_contactos.php";
-
-        document.getElementById(
-            "url" + sufijo
-        ).textContent = ruta;
-    }
-
-    async function copiarEndpoint(metodo) {
-
-        const sufijo = metodo === "PUT" ? "Put" : "Delete";
-
-        const valor = document.getElementById(
-            "id" + sufijo
-        ).value;
-
-        if (!/^[1-9]\d*$/.test(valor)) {
-            alert("Introduce un ID válido.");
-            return;
-        }
-
-        const url = metodo === "DELETE"
-            ? urlApi + "?id=" + valor
-            : urlApi;
-
-        try {
-
-            await navigator.clipboard.writeText(url);
-
-            alert(
-                "URL copiada. Usa " + metodo +
-                " y tu API key en Postman." +
-                (metodo === "PUT"
-                    ? " Añade también el ID " + valor + " al JSON."
-                    : "")
-            );
-
-        } catch (error) {
-
-            window.prompt("Copia esta URL:", url);
-
-        }
-    }
-</script>
 
 </body>
 </html>
