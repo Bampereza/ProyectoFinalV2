@@ -455,9 +455,12 @@ try {
             ]);
         }
 
-        // 204 significa eliminación exitosa, sin cuerpo.
-        responder(204);
-    }
+         responder(200, [
+                  "estado" => "exito",
+                  "mensaje" => "Contacto eliminado correctamente.",
+                  "id_eliminado" => $id
+                        ]);
+         }
 
 } catch (Throwable $e) {
 
